@@ -28,7 +28,7 @@ public class DataHelper {
     @Value
     public static class CardInfo {
         private String number;
-        public String id;
+        private String id;
     }
 
     public static CardInfo getFirstCard() {

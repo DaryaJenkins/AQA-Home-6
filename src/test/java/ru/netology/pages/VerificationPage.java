@@ -9,14 +9,15 @@ import static com.codeborne.selenide.Selenide.$;
 public class VerificationPage {
 
     private SelenideElement codeInput = $("[data-test-id=code] input");
+    private SelenideElement verifyButton = $("[data-test-id=action-verify]");
 
     public VerificationPage() {
         codeInput.shouldBe(Condition.visible);
     }
 
     public DashboardPage validVerify(DataHelper.VerificationCode verificationCode) {
-        $("[data-test-id=code] input").setValue(verificationCode.getCode());
-        $("[data-test-id=action-verify]").click();
+        codeInput.setValue(verificationCode.getCode());
+        verifyButton.click();
         return new DashboardPage();
     }
 }
